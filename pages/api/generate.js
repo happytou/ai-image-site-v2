@@ -1,4 +1,16 @@
 export default async function handler(req, res) {
+
+    // ✅ 1. CORS 허용 헤더 설정
+  res.setHeader("Access-Control-Allow-Origin", "*"); // 또는 "https://ninexnine9.wixstudio.io"
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+    // ✅ 2. 프리플라이트 요청(OPTIONS) 처리
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+    // ✅ 3. 본래 이미지 생성 로직
   const { prompt } = req.body;
 
   if (!prompt) {
