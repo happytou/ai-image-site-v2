@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
   try {
     const bodyPayload = {
-      model: "gpt-image-1",
+      model: "dall-e-3",
       prompt: prompt.trim(),
       n: 1,
       size: "1024x1024",
